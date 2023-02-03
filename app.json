@@ -5,6 +5,13 @@
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash":{
+      "image": "./assets/splash.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#71c5cf"
+    }
   }
 }
