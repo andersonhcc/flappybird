@@ -1,5 +1,5 @@
 import { Image } from 'react-native';
-import Matter from 'matter-js';
+import {World, Bodies} from 'matter-js';
 import BIRD from '../../../assets/images/bird.png';
 import { styles } from './styles';
 
@@ -13,21 +13,24 @@ const Floor = (props) => {
   const color = props.color;
   
   return ( 
-    <Image 
-    source={BIRD}
-    style={styles({
-      widthBody,
-      heightBody,
-      xBody,
-      yBody,
-      color,
-    }).floor}
+    <Image
+      source={BIRD}
+      style={
+        styles({
+          widthBody,
+          heightBody,
+          xBody,
+          yBody,
+          color,
+        }).floor
+      }
     />
+  
 );
 };
 
 export default (world, color, pos, size) => {
-  const initialFloor = Matter.Bodies.rectangle(
+  const initialFloor = Bodies.rectangle(
     pos.x,
     pos.y,
     size.width,
@@ -35,7 +38,7 @@ export default (world, color, pos, size) => {
     { label: 'Floor', isStatic: true}
   )
 
-  Matter.World.add(world, [initialFloor]);
+  World.add(world, [initialFloor]);
 
   return {
     body: initialFloor,
